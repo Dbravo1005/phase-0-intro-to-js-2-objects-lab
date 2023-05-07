@@ -1,35 +1,26 @@
-const employee = {
-    name: "Paul",
-    streetAddress: "23 Broadway"
+const employee = ({
+    name: 'Jason',
+    streetAddress: '1797 Atlantic Avenue',
+});
+
+function updateEmployeeWithKeyAndValue(obj, key, value){
+    return {
+        ...obj,[key]: value,
+    }
 };
 
-// console.log(employee)
-
-function updateEmployeeWithKeyAndValue(employee, key, value){
-    
-    // const employeeCopy = {...employee, [key] : value};
-    const employeeCopy = {...employee};
-    
-    employeeCopy[key] = value;
-    
-    return employeeCopy
+function destructivelyUpdateEmployeeWithKeyAndValue(obj, key, value){
+employee[key] = value
+return employee
 }
 
-// console.log(updateEmployeeWithKeyAndValue(employee, 'age', 30))
+function deleteFromEmployeeByKey(employee, key){
+ const newObj = {...employee}
+ delete newObj[key]
+ return newObj
+};
 
-function destructivelyUpdateEmployeeWithKeyAndValue(employee,key,value){
-    employee[key] = value
-
+function destructivelyDeleteFromEmployeeByKey(employee, key){
+   delete employee[key]
     return employee
-}
-
-function deleteFromEmployeeByKey(employee, key){ 
-    const newObj = {...employee}
-    delete newObj[key]
-   return newObj;
-}
-
-function destructivelyDeleteFromEmployeeByKey(employee,key){
-    delete employee [key]
-    return employee
-}
+};
